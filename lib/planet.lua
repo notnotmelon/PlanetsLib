@@ -80,17 +80,17 @@ function PlanetsLib.verify_config_fields(config)
     end
 end
 
-function PlanetsLib:is_space_location(planet)
+function PlanetsLib.is_space_location(planet)
     if not planet then return false end
     return planet.type == "planet" or planet.type == "space-location"
 end
 
 --- Clones music tracks from source_planet to target_planet.
 --- Does not overwrite existing music for target_planet.
-function PlanetsLib:steal_music(source_planet, target_planet)
-    assert(PlanetsLib:is_space_location(source_planet),
+function PlanetsLib.steal_music(source_planet, target_planet)
+    assert(PlanetsLib.is_space_location(source_planet),
         "PlanetsLib:steal_music() - Invalid parameter 'source_planet'. Field is required to be either `space-location` or `planet` prototype.")
-    assert(PlanetsLib:is_space_location(target_planet),
+    assert(PlanetsLib.is_space_location(target_planet),
         "PlanetsLib:steal_music() - Invalid parameter 'target_planet'. Field is required to be either `space-location` or `planet` prototype.")
 
     for _, music in pairs(data.raw["ambient-sound"]) do
